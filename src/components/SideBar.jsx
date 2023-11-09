@@ -162,11 +162,11 @@ export default function SideBar() {
       </ListItemButton>
         <Collapse in={openState.openTablasBasicas} timeout="auto" unmountOnExit>
           <List component="div" disablePadding>
-            <ListItemButton  onClick={()=>{handleClickButtonChange('Home')}} sx={{ pl: 4 }}>
+            <ListItemButton  onClick={()=>{handleClickButtonChange('Usuarios')}} sx={{ pl: 4 }}>
               <ListItemIcon>
                 <StarBorder />
               </ListItemIcon>
-              <ListItemText primary="Usuarios" />
+              <ListItemText primary="Usuarios"  />
             </ListItemButton>
             <ListItemButton sx={{ pl: 4 }}>
               <ListItemIcon>
