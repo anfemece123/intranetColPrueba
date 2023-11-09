@@ -21,6 +21,8 @@ import { useNavigate } from 'react-router-dom';
 import { Collapse } from '@mui/material';
 import { ExpandLess, ExpandMore, StarBorder } from '@mui/icons-material';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { changeButton } from '../redux/Reducers/sideBarButtonSlice';
 
 const drawerWidth = 240;
 
@@ -78,6 +80,7 @@ export default function SideBar() {
 
   const theme = useTheme();
   const navigate = useNavigate();
+  const dispatch= useDispatch();
 
   const [openDrawer, setOpenDrawer] = useState(true)
 
@@ -92,6 +95,11 @@ export default function SideBar() {
       [key]: !prevState[key]
     }));
   };
+
+  const handleClickButtonChange = (prop)=>{
+    dispatch(changeButton(prop))
+    navigate(`/${prop}`)
+  }
 
 
   return (
@@ -154,7 +162,7 @@ export default function SideBar() {
       </ListItemButton>
         <Collapse in={openState.openTablasBasicas} timeout="auto" unmountOnExit>
           <List component="div" disablePadding>
-            <ListItemButton  onClick={()=>{navigate("/Usuarios")}} sx={{ pl: 4 }}>
+            <ListItemButton  onClick={()=>{handleClickButtonChange('Home')}} sx={{ pl: 4 }}>
               <ListItemIcon>
                 <StarBorder />
               </ListItemIcon>

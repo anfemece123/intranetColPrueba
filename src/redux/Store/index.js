@@ -4,6 +4,7 @@ import { combineReducers } from "@reduxjs/toolkit";
 import { persistReducer } from "redux-persist";
 import thunk from "redux-thunk";
 import { persistStore } from "redux-persist";
+import sideBarButtonSlice from "../Reducers/sideBarButtonSlice";
  
 //*  Reducers
 
@@ -20,6 +21,8 @@ const persistConfig = {
   whitelist: ["cart"],
 };
 const rootReducer = combineReducers({
+
+    button: sideBarButtonSlice,
 //   allProducts: productReducer,
 
 });
